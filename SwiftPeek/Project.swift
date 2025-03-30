@@ -6,9 +6,12 @@ let project = Project(
         .target(
             name: "SwiftPeek",
             destinations: .iOS,
-            product: .dynamicLibrary,
+            product: .staticLibrary,
             bundleId: "com.kelvinharron.SwiftPeek",
-            infoPlist: .default,
+            infoPlist: .extendingDefault(with: [
+                "CODE_SIGNING_ALLOWED": "NO",
+                "SWIFT_VERSION": "6.0"
+            ]),
             sources: ["SwiftPeek/Sources/**"],
             resources: ["SwiftPeek/Resources/**"],
             dependencies: []
